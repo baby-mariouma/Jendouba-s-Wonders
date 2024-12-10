@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Jendouba</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=Pacifico&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <h1>Jendouba's Wonders</h1>
+        
+    </header>
+    <main>
+        <section class="intro">
+            <img src="Documents/wrablayek.jpg".jpg" alt="Jendouba Overview" class="welcome-photo">
+            <div class="intro-text">
+                <p>
+                    Welcome to my website dedicated to my hometown, <strong>Jendouba</strong>. 
+                    This site is designed to showcase the beauty and unique charm of Jendouba, 
+                    located in northwest Tunisia. Whether you're interested in exploring stunning 
+                    natural landscapes, learning about its rich history, or discovering hidden gems, 
+                    this website offers a gateway to experience Jendouba.
+                </p>
+                <p>
+                    Dive into the pages to explore famous spots like Tabarka, Ain Draham, 
+                    Bni Mtir, Ain Soltan, Djebba, and Bulla Regia. Each page is designed 
+                    to provide you with insights and visual delights about these locations. 
+                    My goal is to inspire you to visit Jendouba and experience its wonders firsthand.
+                </p>
+            </div>
+        </section>
+        <section>
+            <button class="explore-btn" onclick="navigatePage()">
+                <a href="page01.html">Explore Jendouba</a>
+            </button>
+        </section>
+    </main>
+    
+    <footer>
+        <p>Discover Jendouba</p>
+    </footer>
+    <script>
+        function navigatePage() {
+    const userConfirmation = confirm("Do you want to START exploring?");
+    if (userConfirmation) {
+        alert("Starting...");
+        window.location.href = "page01.html";
+    } else {
+        alert("You chose to stay on this page!");
+    }
+}
+        const footerText = document.querySelector("footer p");
+footerText.addEventListener("mouseover", function () {
+    alert("Thanks for visiting Jendouba!");
+});
+    </script>
+</body>
+</html>

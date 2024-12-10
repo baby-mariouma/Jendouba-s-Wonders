@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabarka - Jendouba's Wonders</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Tabarka</h1>
+        <button class="header-btn" onclick="navigatePage()">
+            <a href="page01.html">Go Back</a>
+        </button>
+    </header>
+    <main>
+        <section>
+            <h2>About Tabarka</h2>
+            <p>
+                Tabarka is a coastal town known for its pristine beaches, coral reefs, and the famous rock formations known as Les Aiguilles (The Needles). It is a hub for diving, music festivals, and outdoor activities.
+            </p>
+        </section>
+        <section>
+            <h2>Top Attractions</h2>
+            <ul>
+                <li>Les Aiguilles</li>
+                <li>Tabarka Marina</li>
+                <li>Fort Genoese (Tabarka Castle)</li>
+                <li>Coral Museum</li>
+                <li>Tabarka Beach</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Activities & Costs</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Activity</th>
+                        <th>Best Time to Visit</th>
+                        <th>Estimated Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Scuba diving</td>
+                        <td>June - September</td>
+                        <td>~50 TND/session</td>
+                    </tr>
+                    <tr>
+                        <td>Attending Jazz Festival</td>
+                        <td>July</td>
+                        <td>Free - 100 TND</td>
+                    </tr>
+                    <tr>
+                        <td>Visiting Les Aiguilles</td>
+                        <td>Year-round</td>
+                        <td>Free</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section>
+            <h2>Photo Gallery</h2>
+            <div class="photo-gallery">
+                <img src="Documents/Tabarka/tabarka0.jpg" alt="Tabarka">
+                <img src="Documents/Tabarka/tabarka.jpg" alt="Tabarka">
+                <img src="Documents/Tabarka/tabarka1.jpg" alt="Tabarka">
+                <img src="Documents/Tabarka/tabarka2.jpg" alt="Tabarka">
+                <img src="Documents/Tabarka/tabarka3.jpg" alt="Tabarka">
+                <img src="Documents/Tabarka/tabarka4.jpg" alt="Tabarka">
+                <img src="Documents/Tabarka/tabarka5.jpg" alt="Tabarka">
+                <img src="Documents/Tabarka/tabarka6.jpg" alt="Tabarka">
+                <img src="Documents/Tabarka/tabarka7.jpg" alt="Tabarka">
+                <img src="Documents/Tabarka/tabarka8.jpg" alt="Tabarka">
+                <img src="Documents/Tabarka/tabarka9.jpg" alt="Tabarka">
+                <img src="Documents/Tabarka/tabarka10.jpg" alt="Tabarka">
+                <img src="Documents/Tabarka/tabarka11.jpg" alt="Tabarka">
+                
+                
+
+                
+            </div>
+        </section>
+        <section>
+            <h2>Visit Tabarka on the Map</h2>
+            <a href="https://maps.app.goo.gl/91snvaTwLgT8EKDu8" target="_blank">
+                <img src="Documents/localisation.jpg" alt="Tabarka Map" class="map-photo">
+            </a>
+        </section>
+        
+    </main>
+    <footer>
+        <p>Discover Jendouba</p>
+    </footer>
+    <script>
+        function navigatePage() {
+    const userConfirmation = confirm("Do you want to go back?");
+    if (userConfirmation) {
+        alert("Going back...");
+        window.location.href = "page01.html";
+    } else {
+        alert("You chose to stay on this page!");
+    }
+}
+const footerText = document.querySelector("footer p");
+footerText.addEventListener("mouseover", function () {
+    alert("Thanks for visiting Jendouba!");
+});
+    </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ain Draham - Jendouba's Wonders</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Ain Draham</h1>
+        <button class="header-btn" onclick="navigatePage()">
+            <a href="page01.html">Go Back</a>
+        </button>
+    </header>
+    <main>
+        <section>
+            <h2>About Ain Draham</h2>
+            <p>
+                Ain Draham is a picturesque mountain town famous for its cedar forests, cool climate, and charming architecture. It is a top destination for winter visitors due to its snow-covered scenery.
+            </p>
+        </section>
+        <section>
+            <h2>Activities to Enjoy</h2>
+            <ul>
+                <li>Hiking in the forests</li>
+                <li>Exploring traditional houses</li>
+                <li>Horseback riding</li>
+                <li>Snow activities (winter)</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Weather & Activities</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Month</th>
+                        <th>Weather Condition</th>
+                        <th>Popular Activity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>January - February</td>
+                        <td>Snow</td>
+                        <td>Snow sports</td>
+                    </tr>
+                    <tr>
+                        <td>March - May</td>
+                        <td>Cool & mild</td>
+                        <td>Hiking</td>
+                    </tr>
+                    <tr>
+                        <td>June - August</td>
+                        <td>Pleasant</td>
+                        <td>Exploring forests</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section>
+            <h2>Photo Gallery</h2>
+            <div class="photo-gallery">
+                <img src="Documents/AinDrahem/aindrahem.jpg" alt="Ain Draham">
+                <img src="Documents/AinDrahem/aindrahem2.jpg" alt="Ain Draham">
+                <img src="Documents/AinDrahem/aindrahem3.jpg" alt="Ain Draham">
+                <img src="Documents/AinDrahem/aindrahem4.jpg" alt="Ain Draham">
+                <img src="Documents/AinDrahem/aindrahem5.jpg" alt="Ain Draham">
+                <img src="Documents/AinDrahem/aindrahem6.jpg" alt="Ain Draham">
+                <img src="Documents/AinDrahem/aindrahem7.jpg" alt="Ain Draham">
+                <img src="Documents/AinDrahem/aindrahem8.jpg" alt="Ain Draham">
+                
+            </div>
+        </section>
+        <section>
+            <h2>Visit Ain Drahem on the Map</h2>
+            <a href="https://maps.app.goo.gl/krvQvtxKhV4wSQq29" target="_blank">
+                <img src="Documents/localisation.jpg" alt="Ain Drahem Map" class="map-photo">
+            </a>
+        </section>
+        
+    </main>
+    <footer>
+        <p>Discover Jendouba</p>
+    </footer>
+    <script>
+        function navigatePage() {
+    const userConfirmation = confirm("Do you want to go back?");
+    if (userConfirmation) {
+        alert("Going back...");
+        window.location.href = "page01.html";
+    } else {
+        alert("You chose to stay on this page!");
+    }
+}
+const footerText = document.querySelector("footer p");
+footerText.addEventListener("mouseover", function () {
+    alert("Thanks for visiting Jendouba!");
+});
+    </script>
+</body>
+</html>

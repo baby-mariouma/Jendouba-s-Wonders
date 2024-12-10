@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Jendouba</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=Pacifico&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <h1>Jendouba's Wonders</h1>
+        <button class="header-btn" onclick="navigatePage()">
+            <a href="index.html">Go Back</a>
+        </button>
+    </header>
+    <main>
+        <section>
+            <h2>Watch Jendouba in Action</h2>
+            <video controls width="100%">
+                <source src="Documents/Jendouba.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </section>
+        <section>
+            <h2>Places You Can Visit</h2>
+            <div class="gallery">
+                <a href="tabarka.html" class="gallery-item">
+                    <img src="Documents/Tabarka/tabarkaa.jpg" alt="Tabarka">
+                    <div class="overlay">Tabarka</div>
+                </a>
+                <a href="ain-drahem.html" class="gallery-item">
+                    <img src="Documents/AinDrahem/aindrahem.jpg" alt="Ain Draham">
+                    <div class="overlay">Ain Draham</div>
+                </a>
+                <a href="bni-mtir.html" class="gallery-item">
+                    <img src="Documents/BniMtir/tun.jpg" alt="Bni Mtir">
+                    <div class="overlay">Bni Mtir</div>
+                </a>
+                <a href="ain-soltan.html" class="gallery-item">
+                    <img src="Documents/AinSoltan/tunis.jpg" alt="Ain Soltan">
+                    <div class="overlay">Ain Soltan</div>
+                </a>
+                </a>
+                <a href="bulla-regia.html" class="gallery-item">
+                    <img src="Documents/BullaRegia/bulla-regia.jpg" alt="Bulla Regia">
+                    <div class="overlay">Bulla Regia</div>
+                </a>
+            </div>
+        </section>
+        <section id="user-form">
+            <h2>Share Your Favorite Place</h2>
+            <form id="favoritePlaceForm" action="#" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Your Name" required><br>
+        
+                <label for="email">Email (optional):</label>
+                <input type="email" id="email" name="email" placeholder="Your Email"><br>
+        
+                <label for="place">Favorite Place:</label>
+                <select id="place" name="place">
+                    <option value="tabarka">Tabarka</option>
+                    <option value="ain-draham">Ain Draham</option>
+                    <option value="bni-mtir">Bni Mtir</option>
+                    <option value="djebba">Ain Soltan</option>
+                    <option value="suggest">Suggest a new place</option>
+                </select><br>
+        
+                <label for="comments">Comments:</label>
+                <textarea id="comments" name="comments" rows="5" placeholder="Tell us more about your favorite place!"></textarea><br>
+        
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+        
+        <section>
+            <h2>Interactive Section</h2>
+            <p>Click the button below to add your favorite place in Jendouba:</p>
+            <button id="addPlaceBtn" class="explore-btn">Add Favorite Place</button>
+            <ul id="placesList">
+                <li>Tabarka</li>
+                <li>Ain Drahem</li>
+                <li>Ain Soltan</li>
+            </ul>
+        </section>
+        <section id="audio-section">
+            <h2>Ghneya Lik</h2>
+            <audio src="Documents/Ghneya lik.mp3" controls></audio>
+        </section>
+        <section id="email-section">
+            <h2>Send Us Your Reviews</h2>
+            <p>If you have feedback about this website, feel free to email us!</p>
+            <a href="mailto:mariem.babi5@gmail.com?subject=Website Feedback&body=Hello, I would like to share my thoughts about the website...">
+                <button>Send Email</button>
+            </a>
+        </section>
+        
+    </main>
+    <footer>
+        <p>Discover Jendouba</p>
+    </footer>
+    <script>
+function navigatePage() {
+    const userConfirmation = confirm("Do you want to go back?");
+    if (userConfirmation) {
+        alert("Going back...");
+        window.location.href = "index.html";
+    } else {
+        alert("You chose to stay on this page!");
+    }
+}
+
+document.getElementById("addPlaceBtn").addEventListener("click", function () {
+    const placeName = prompt("Enter the name of your favorite place in Jendouba:");
+    if (placeName) {
+        const list = document.getElementById("placesList");
+        const newPlace = document.createElement("li");
+        newPlace.textContent = placeName;
+        list.appendChild(newPlace);
+        alert(`"${placeName}" has been added to the list!`);
+    } else {
+        alert("No place was added.");
+    }
+});
+const footerText = document.querySelector("footer p");
+footerText.addEventListener("mouseover", function () {
+    alert("Thanks for visiting Jendouba!");
+});
+const listItems = document.querySelectorAll("#placesList li");
+listItems.forEach(function (item) {
+    item.addEventListener("mouseover", function () {
+        this.style.backgroundColor = "#8ee989a4";
+    });
+    item.addEventListener("mouseout", function () {
+        this.style.backgroundColor = "transparent";
+    });
+});
+document.getElementById("favoritePlaceForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const place = document.getElementById("place").value;
+    const comments = document.getElementById("comments").value.trim();
+
+    if (name === "" || comments === "") {
+        alert("Please fill in all required fields!");
+    } else {
+        alert(`Thank you, ${name}, for sharing your thoughts about ${place}!`);
+        this.reset(); 
+    }
+});
+
+</script>
+</body>
+</html>

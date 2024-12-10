@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bni Mtir - Jendouba's Wonders</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Bni Mtir</h1>
+        <button class="header-btn" onclick="navigatePage()">
+            <a href="page01.html">Go Back</a>
+        </button>
+    </header>
+    <main>
+        <section>
+            <h2>About Bni Mtir</h2>
+            <p>
+                Bni Mtir is a charming village nestled in a lush green valley. Known for its dam and surrounding pine forests, it’s an ideal spot for nature enthusiasts and photographers.
+            </p>
+        </section>
+        <section>
+            <h2>Reasons to Visit</h2>
+            <ul>
+                <li>Scenic views of the Bni Mtir Dam</li>
+                <li>Forest walks</li>
+                <li>Birdwatching</li>
+                <li>Peaceful atmosphere</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Attractions & Details</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Attraction</th>
+                        <th>Distance from Jendouba (km)</th>
+                        <th>Time Required</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Bni Mtir Dam</td>
+                        <td>18</td>
+                        <td>2-3 hours</td>
+                    </tr>
+                    <tr>
+                        <td>Pine Forest Trails</td>
+                        <td>20</td>
+                        <td>Half-day</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section>
+            <h2>Photo Gallery</h2>
+            <div class="photo-gallery">
+                <img src="Documents/BniMtir/bni-mtir.jpg" alt="Bni Mtir">
+                <img src="Documents/BniMtir/bni-mtir1.jpg" alt="Bni Mtir">
+                <img src="Documents/BniMtir/bni-mtir2.jpg" alt="Bni Mtir">
+                <img src="Documents/BniMtir/bni-mtir3.jpg" alt="Bni Mtir">
+                <img src="Documents/BniMtir/bni-mtir4.jpg" alt="Bni Mtir">
+                <img src="Documents/BniMtir/bni-mtir5.jpg" alt="Bni Mtir">
+                
+            </div>
+        </section>
+        <section>
+            <h2>Visit Bni Mtir on the Map</h2>
+            <a href="https://maps.app.goo.gl/s1x43KNBzTqisMGfA" target="_blank">
+                <img src="Documents/localisation.jpg" alt="Bni Mtir Map" class="map-photo">
+            </a>
+        </section>
+        
+    </main>
+
+    <footer>
+        <p>Discover Jendouba</p>
+    </footer>
+    <script>
+        function navigatePage() {
+    const userConfirmation = confirm("Do you want to go back?");
+    if (userConfirmation) {
+        alert("Going back...");
+        window.location.href = "page01.html";
+    } else {
+        alert("You chose to stay on this page!");
+    }
+}
+const footerText = document.querySelector("footer p");
+footerText.addEventListener("mouseover", function () {
+    alert("Thanks for visiting Jendouba!");
+});
+    </script>
+</body>
+</html>
