@@ -19,7 +19,7 @@ def home():
 
 @app.route("/add_review", methods=["POST"])
 def add_review():
-    data = request.json
+    data = request.form
 
     name = data["name"]
     place = data["place"]
