@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Jendouba</title>
+    <link rel="stylesheet" href="static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=Pacifico&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <h1>Jendouba's Wonders</h1>
+        <button class="header-btn" onclick="navigatePage()">
+            <a href="/">Go Back</a>
+        </button>
+    </header>
+    <main>
+        <section>
+            <h2>Watch Jendouba in Action</h2>
+            <video controls width="100%">
+                <source src="static/videos/Jendouba.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </section>
+        <section>
+            <h2>Places You Can Visit</h2>
+            <div class="gallery">
+                <a href="/tabarka" class="gallery-item">
+                    <img src="static/images/Tabarka/tabarkaa.jpg" alt="Tabarka">
+                    <div class="overlay">Tabarka</div>
+                </a>
+                <a href="/aindraham" class="gallery-item">
+                    <img src="static/images/AinDrahem/aindrahem.jpg" alt="Ain Draham">
+                    <div class="overlay">Ain Draham</div>
+                </a>
+                <a href="/bni-mtir" class="gallery-item">
+                    <img src="static/images/BniMtir/tun.jpg" alt="Bni Mtir">
+                    <div class="overlay">Bni Mtir</div>
+                </a>
+                <a href="/ainsoltane" class="gallery-item">
+                    <img src="static/images/AinSoltan/tunis.jpg" alt="Ain Soltan">
+                    <div class="overlay">Ain Soltan</div>
+                </a>
+                </a>
+                <a href="/bulla-regia" class="gallery-item">
+                    <img src="static/images/BullaRegia/bulla-regia.jpg" alt="Bulla Regia">
+                    <div class="overlay">Bulla Regia</div>
+                </a>
+            </div>
+        </section>
+        <section id="user-form">
+            <h2>Share Your Favorite Place</h2>
+            <form id="favoritePlaceForm" action="/add_review" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Your Name" required><br>
+        
+               
+        
+                <label for="place">Favorite Place:</label>
+                <select id="place" name="place">
+                    <option value="tabarka">Tabarka</option>
+                    <option value="ain-draham">Ain Draham</option>
+                    <option value="bni-mtir">Bni Mtir</option>
+                    <option value="djebba">Ain Soltan</option>
+                    <option value="suggest">Suggest a new place</option>
+                </select><br>
+        
+                <label for="review">review:</label>
+                <textarea id="review" name="review" rows="5" placeholder="Tell us more about your favorite place!"></textarea><br>
+        
+                <button id="submitBtn" type="submit" onclick="window.location.reload()">Submit</button>
+            </form>
+            
+        </section>
+        <section >
+
+            <h2>Users Reviews</h2>
+            <div id="reviews">
+
+            </div>
+            
+        </section>
+        <section>
+            <h2>Interactive Section</h2>
+            <p>Click the button below to add your favorite place in Jendouba:</p>
+            <button id="addPlaceBtn" class="explore-btn">Add Favorite Place</button>
+            <ul id="placesList">
+                <li>Tabarka</li>
+                <li>Ain Drahem</li>
+                <li>Ain Soltan</li>
+            </ul>
+        </section>
+        <section id="audio-section">
+            <h2>Ghneya Lik</h2>
+            <audio src="static/audio/ghneya-lik.mp3" controls></audio>
+        </section>
+        <section id="email-section">
+            <h2>Send Us Your Reviews</h2>
+            <p>If you have feedback about this website, feel free to email us!</p>
+            <a href="mailto:mariem.babi5@gmail.com?subject=Website Feedback&body=Hello, I would like to share my thoughts about the website...">
+                <button>Send Email</button>
+            </a>
+        </section>
+        
+    </main>
+    <footer>
+        <p>Discover Jendouba</p>
+    </footer>
+    <script>
+function navigatePage() {
+    const userConfirmation = confirm("Do you want to go back?");
+    if (userConfirmation) {
+        alert("Going back...");
+        window.location.href = "index.html";
+    } else {
+        alert("You chose to stay on this page!");
+    }
+}
+
+document.getElementById("addPlaceBtn").addEventListener("click", function () {
+    const placeName = prompt("Enter the name of your favorite place in Jendouba:");
+    if (placeName) {
+        const list = document.getElementById("placesList");
+        const newPlace = document.createElement("li");
+        newPlace.textContent = placeName;
+        list.appendChild(newPlace);
+        alert(`"${placeName}" has been added to the list!`);
+    } else {
+        alert("No place was added.");
+    }
+});
+const footerText = document.querySelector("footer p");
+footerText.addEventListener("mouseover", function () {
+    alert("Thanks for visiting Jendouba!");
+});
+const listItems = document.querySelectorAll("#placesList li");
+listItems.forEach(function (item) {
+    item.addEventListener("mouseover", function () {
+        this.style.backgroundColor = "#8ee989a4";
+    });
+    item.addEventListener("mouseout", function () {
+        this.style.backgroundColor = "transparent";
+    });
+});
+
+
+document.getElementById("submitBtn").addEventListener("click", function(){
+
+    const name = document.getElementById("name").value
+    const place = document.getElementById("place").value
+    const review = document.getElementById("review").value
+
+    fetch("/add_review", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            name: name,
+            place: place,
+            review: review
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert("Review saved!")
+        loadReviews()
+    })
+    
+
+})
+
+
+function loadReviews(){
+
+fetch("/get_reviews")
+.then(response => response.json())
+.then(data => {
+
+    const container = document.getElementById("reviews")
+    container.innerHTML = ""
+
+    data.forEach(r => {
+
+        container.innerHTML += `
+         <div class="review-card">
+            <h3 class="review-place">${r.place}</h3>
+            <p class="review-text">${r.review}</p>
+            <span class="review-author">_ ${r.name} </span>
+        </div>
+        `
+    })})} 
+
+
+
+
+
+
+window.onload = loadReviews
+
+
+</script>
+</body>
+</html>
