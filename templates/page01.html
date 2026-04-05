@@ -51,7 +51,7 @@
         </section>
         <section id="user-form">
             <h2>Share Your Favorite Place</h2>
-            <form id="favoritePlaceForm" action="/add_review" method="post">
+            <form id="favoritePlaceForm" action="/add_review" method="POST">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" placeholder="Your Name" required><br>
         
@@ -174,7 +174,11 @@ document.getElementById("submitBtn").addEventListener("click", function(){
 
 function loadReviews(){
 
-fetch("/get_reviews")
+fetch("/get_reviews",  {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+}})
 .then(response => response.json())
 .then(data => {
 
