@@ -51,7 +51,7 @@
         </section>
         <section id="user-form">
             <h2>Share Your Favorite Place</h2>
-            <form id="favoritePlaceForm" action="/add_review" method="POST">
+            <form id="favoritePlaceForm" >
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" placeholder="Your Name" required><br>
         
@@ -69,7 +69,7 @@
                 <label for="review">review:</label>
                 <textarea id="review" name="review" rows="5" placeholder="Tell us more about your favorite place!"></textarea><br>
         
-                <button id="submitBtn" type="submit" onclick="window.location.reload()">Submit</button>
+                <button id="submitBtn" type="submit" >Submit</button>
             </form>
             
         </section>
@@ -112,7 +112,7 @@ function navigatePage() {
     const userConfirmation = confirm("Do you want to go back?");
     if (userConfirmation) {
         alert("Going back...");
-        window.location.href = "index.html";
+        window.location.href = "page01.html";
     } else {
         alert("You chose to stay on this page!");
     }
@@ -174,11 +174,7 @@ document.getElementById("submitBtn").addEventListener("click", function(){
 
 function loadReviews(){
 
-fetch("/get_reviews",  {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json"
-}})
+fetch("/get_reviews")
 .then(response => response.json())
 .then(data => {
 
