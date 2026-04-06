@@ -62,10 +62,10 @@
                     <option value="tabarka">Tabarka</option>
                     <option value="ain-draham">Ain Draham</option>
                     <option value="bni-mtir">Bni Mtir</option>
-                    <option value="djebba">Ain Soltan</option>
+                    <option value="ain-soltan">Ain Soltan</option>
                     <option value="suggest">Suggest a new place</option>
                 </select><br>
-        
+                <input type="text" id="newPlace" placeholder="Enter new place" style="display:none;"><br>
                 <label for="review">review:</label>
                 <textarea id="review" name="review" rows="5" placeholder="Tell us more about your favorite place!"></textarea><br>
         
@@ -144,12 +144,32 @@ listItems.forEach(function (item) {
     });
 });
 
+const placeSelect = document.getElementById("place");
+const newPlaceInput = document.getElementById("newPlace");
+
+placeSelect.addEventListener("change", function () {
+    if (this.value === "suggest") {
+        newPlaceInput.style.display = "block";
+    } else {
+        newPlaceInput.style.display = "none";
+    }
+});
+
 
 document.getElementById("submitBtn").addEventListener("click", function(){
 
     const name = document.getElementById("name").value
-    const place = document.getElementById("place").value
+    
     const review = document.getElementById("review").value
+
+     let place;
+
+    if(placeSelect.value === "suggest"){
+        place = newPlaceInput.value;  
+    } else {
+        place = placeSelect.value;
+    }
+
 
     fetch("/add_review", {
         method: "POST",
